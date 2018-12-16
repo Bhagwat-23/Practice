@@ -1,0 +1,8 @@
+D:\Github\HoneywellHackathonPractice\Project.DAL\bin\Debug\Employee.mdf
+D:\Github\HoneywellHackathonPractice\Project.DAL\bin\Debug\Employee_log.ldf
+D:\Github\HoneywellHackathonPractice\Project.DAL\bin\Debug\Project.DAL.dll
+D:\Github\HoneywellHackathonPractice\Project.DAL\bin\Debug\Project.DAL.pdb
+D:\Github\HoneywellHackathonPractice\Project.DAL\obj\Debug\Project.DAL.csproj.CoreCompileInputs.cache
+D:\Github\HoneywellHackathonPractice\Project.DAL\obj\Debug\Project.DAL.dll
+D:\Github\HoneywellHackathonPractice\Project.DAL\obj\Debug\Project.DAL.pdb
+D:\Github\HoneywellHackathonPractice\Project.DAL\obj\Debug\Project.DAL.csprojAssemblyReference.cache
