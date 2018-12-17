@@ -1,5 +1,7 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using Project.MainArea.Interfaces;
+using Project.MainArea.Models;
+using Project.MainArea.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,13 @@ namespace Project.MainArea.Views
 		{
 			InitializeComponent();
 			this.DataContext = ServiceLocator.Current.GetInstance<IMainAreaViewModel>();
+		}
+
+		private void SelectedItemEventHandler(object sender, RoutedPropertyChangedEventArgs<object> e)
+		{
+			var viewModel = this.DataContext as MainAreaViewModel;
+			var x = e.NewValue as TreeModel;
+			viewModel.SelectedTreeItem = x;
 		}
 	}
 }

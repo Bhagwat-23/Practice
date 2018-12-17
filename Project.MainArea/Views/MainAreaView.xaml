@@ -4,9 +4,43 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Project.MainArea.Views"
-             mc:Ignorable="d" 
+             xmlns:behave="clr-namespace:Project.CommonInfra.Behaviors;assembly=Project.CommonInfra"
+             mc:Ignorable="d"
+             xmlns:conv="clr-namespace:Project.CommonInfra.Converters;assembly=Project.CommonInfra"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <conv:BoolToVisibilityConverter x:Key="VisibilityConverter"/>
+    </UserControl.Resources>
     <Grid>
-        <Label Content="This is a Main area view"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TreeView Grid.Column="0" ItemsSource="{Binding TreeSource,Mode=TwoWay}" SelectedItemChanged="SelectedItemEventHandler">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding ChildTreeModel}">
+                    <TextBlock FontWeight="Bold" Text="{Binding Path=Name}" />
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <ListView Grid.Column="1" ItemsSource="{Binding TaskSource,Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Expander Header="{Binding Header,Mode=TwoWay}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Description,Mode=TwoWay}"/>
+                            <TextBlock Text="{Binding Date,Mode=TwoWay}"/>
+                        </StackPanel>
+                    </Expander>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--<local:DetailView Grid.Column="1" 
+                          Visibility="{Binding MainAreaVisiblity,Mode=TwoWay,Converter={StaticResource VisibilityConverter}}"/>-->
     </Grid>
 </UserControl>

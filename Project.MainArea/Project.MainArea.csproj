@@ -72,8 +72,13 @@
   <ItemGroup>
     <Compile Include="Interfaces\IMainAreaViewModel.cs" />
     <Compile Include="MainAreaModule.cs" />
+    <Compile Include="Models\TaskModel.cs" />
+    <Compile Include="Models\TreeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainAreaViewModel.cs" />
+    <Compile Include="Views\DetailView.xaml.cs">
+      <DependentUpon>DetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainAreaView.xaml.cs">
       <DependentUpon>MainAreaView.xaml</DependentUpon>
     </Compile>
@@ -82,14 +87,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\DetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainAreaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Project.CommonInfra\Project.CommonInfra.csproj">
       <Project>{37594AC0-4C6C-4914-B26E-36538B4ABCC2}</Project>
